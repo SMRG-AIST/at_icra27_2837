@@ -21,11 +21,11 @@
                 <span>Cross-Satellite GNSS</span>
             </a>
             <div class="nav-links">
+                <a href="#video">Video</a>
                 <a href="#abstract">Abstract</a>
                 <a href="#method">Method</a>
                 <a href="#experiments">Experiments</a>
                 <a href="#analysis">Analysis</a>
-                <a href="#video">Video</a>
             </div>
         </div>
     </nav>
@@ -44,39 +44,57 @@
             </p>
             <p class="authors">Anonymous Authors</p>
         </div>
-
-        <div class="container hero-figure-wrap">
-            <figure class="hero-figure">
-                <img src="./media/teaser.png" width="3338" height="2150"
-                    alt="Cross-Satellite Relational Model connecting GNSS observations, cross-satellite attention, and satellite reliability">
-                <figcaption>
-                    The model learns which satellites should inform one another from signal quality, residuals, and
-                    relative geometry.
-                </figcaption>
-            </figure>
-        </div>
     </header>
 
     <main id="main">
-        <section class="section" id="abstract">
+        <section class="section video-overview" id="video">
             <div class="container narrow">
+                <div class="section-heading">
+                    <span>Video</span>
+                    <h2>Video Overview</h2>
+                </div>
+                <p class="section-lead">
+                    A visual overview of the proposed cross-satellite relational learning framework and its results.
+                </p>
+                <div class="video-frame">
+                    <video controls playsinline preload="metadata"
+                        aria-label="Cross-Satellite GNSS project video">
+                        <source src="./media/icra2027_video.mp4" type="video/mp4">
+                        Your browser does not support embedded MP4 video.
+                    </video>
+                </div>
+                <p class="video-link">
+                    <a href="https://www.youtube.com/watch?v=Zn3Nn8_mryA" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="abstract">
+            <div class="container">
                 <div class="section-heading">
                     <span>01</span>
                     <h2>Abstract</h2>
                 </div>
-                <p class="abstract-copy">
-                    Urban GNSS positioning is degraded by multipath and non-line-of-sight signals. We introduce a
-                    <strong>self-supervised held-out residual prediction task</strong> that learns relationships among
-                    all satellites
-                    observed at the same epoch without external labels. The pretrained Cross-Satellite GNSS Encoder is
-                    then
-                    fine-tuned for reliability-aware positioning through differentiable weighted least squares. Across
-                    geographic
-                    regions unseen during training, the method remains competitive with existing learning-based
-                    weighting methods.
-                    Attention analysis further shows structured behavior tied to satellite quality and relative
-                    geometry.
-                </p>
+                <div class="abstract-layout">
+                    <p class="abstract-copy">
+                        Urban GNSS positioning is degraded by multipath and non-line-of-sight signals. We introduce a
+                        <strong>self-supervised held-out residual prediction task</strong> that learns relationships
+                        among all satellites observed at the same epoch without external labels. The pretrained
+                        Cross-Satellite GNSS Encoder is then fine-tuned for reliability-aware positioning through
+                        differentiable weighted least squares. Across geographic regions unseen during training, the
+                        method remains competitive with existing learning-based weighting methods. Attention analysis
+                        further shows structured behavior tied to satellite quality and relative geometry.
+                    </p>
+
+                    <figure class="abstract-teaser figure-card">
+                        <img src="./media/teaser.png" width="3338" height="2150"
+                            alt="Cross-Satellite Relational Model connecting GNSS observations, cross-satellite attention, and satellite reliability">
+                        <figcaption>
+                            The model learns which satellites should inform one another from signal quality, residuals,
+                            and relative geometry.
+                        </figcaption>
+                    </figure>
+                </div>
 
                 <div class="contribution-grid" aria-label="Main contributions">
                     <article>
@@ -278,6 +296,20 @@
                     from pretraining.
                 </p>
 
+                <div class="analysis-video-block">
+                    <div class="video-frame">
+                        <video controls playsinline preload="metadata"
+                            aria-label="Satellite attention visualized on a skyplot">
+                            <source src="./media/sat_attention.mp4" type="video/mp4">
+                            Your browser does not support embedded MP4 video.
+                        </video>
+                    </div>
+                    <p class="analysis-video-caption">
+                        Satellite attention evolves over time on the skyplot, revealing how the encoder relates each
+                        query satellite to the surrounding constellation geometry.
+                    </p>
+                </div>
+
                 <figure class="analysis-figure">
                     <div class="analysis-layout">
                         <a class="attention-map" href="./media/attention_fold_comparison_all_epochs_head_mean.svg"
@@ -325,28 +357,6 @@
                             observations even after geometry is shuffled.</p>
                     </article>
                 </div>
-            </div>
-        </section>
-
-        <section class="section section-tint" id="video">
-            <div class="container narrow">
-                <div class="section-heading">
-                    <span>05</span>
-                    <h2>Video</h2>
-                </div>
-                <p class="section-lead">
-                    Watch the project video for a visual overview of the proposed approach and its results.
-                </p>
-                <div class="video-frame">
-                    <iframe src="https://www.youtube-nocookie.com/embed/Zn3Nn8_mryA"
-                        title="Cross-Satellite GNSS project video" loading="lazy"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <p class="video-link">
-                    <a href="https://www.youtube.com/watch?v=Zn3Nn8_mryA" target="_blank" rel="noopener">Watch on YouTube ↗</a>
-                </p>
             </div>
         </section>
 
