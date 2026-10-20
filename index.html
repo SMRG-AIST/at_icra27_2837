@@ -1,141 +1,382 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anonymous Project Page</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            background: #f6f7f9;
-            color: #222;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #1f2937;
-            color: white;
-            padding: 64px 24px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0 0 12px;
-            font-size: 2.4rem;
-        }
-
-        header p {
-            margin: 0;
-            color: #d1d5db;
-            font-size: 1.1rem;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 24px 60px;
-        }
-
-        section {
-            background: white;
-            padding: 28px;
-            margin-bottom: 24px;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        h2 {
-            margin-top: 0;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 8px;
-        }
-
-        .placeholder {
-            height: 260px;
-            border: 2px dashed #9ca3af;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            background: #f9fafb;
-            margin-top: 16px;
-        }
-
-        footer {
-            text-align: center;
-            color: #6b7280;
-            padding: 24px;
-            font-size: 0.9rem;
-        }
-
-        code {
-            background: #f3f4f6;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Project page for Cross-Satellite Relational Learning from GNSS Observations via Self-Supervised Residual Pretraining for Robust Positioning.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Cross-Satellite Relational Learning for Robust Positioning</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <header>
-        <h1>Anonymous Research Project</h1>
-        <p>Test project page for double-blind review</p>
+<body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="container nav-inner">
+            <a class="wordmark" href="#top" aria-label="Back to the top">
+                <span class="wordmark-mark" aria-hidden="true"></span>
+                <span>Cross-Satellite GNSS</span>
+            </a>
+            <div class="nav-links">
+                <a href="#abstract">Abstract</a>
+                <a href="#method">Method</a>
+                <a href="#experiments">Experiments</a>
+                <a href="#analysis">Analysis</a>
+                <a href="#video">Video</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-inner">
+            <p class="eyebrow">Anonymous research project · 2027</p>
+            <h1>
+                Cross-Satellite Relational Learning from GNSS Observations
+                <span>via Self-Supervised Residual Pretraining for Robust Positioning</span>
+            </h1>
+            <p class="hero-lead">
+                A masked-residual pretraining task teaches a Transformer to reason across simultaneously observed
+                satellites,
+                then transfers those representations to reliability-aware GNSS positioning.
+            </p>
+            <p class="authors">Anonymous Authors</p>
+        </div>
+
+        <div class="container hero-figure-wrap">
+            <figure class="hero-figure">
+                <img src="./media/teaser.png" width="3338" height="2150"
+                    alt="Cross-Satellite Relational Model connecting GNSS observations, cross-satellite attention, and satellite reliability">
+                <figcaption>
+                    The model learns which satellites should inform one another from signal quality, residuals, and
+                    relative geometry.
+                </figcaption>
+            </figure>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Overview</h2>
-            <p>
-                This is a temporary test page for an anonymous research project.
-                The final version will include the paper overview, method description,
-                qualitative results, and supplementary materials.
-            </p>
-        </section>
+    <main id="main">
+        <section class="section" id="abstract">
+            <div class="container narrow">
+                <div class="section-heading">
+                    <span>01</span>
+                    <h2>Abstract</h2>
+                </div>
+                <p class="abstract-copy">
+                    Urban GNSS positioning is degraded by multipath and non-line-of-sight signals. We introduce a
+                    <strong>self-supervised held-out residual prediction task</strong> that learns relationships among
+                    all satellites
+                    observed at the same epoch without external labels. The pretrained Cross-Satellite GNSS Encoder is
+                    then
+                    fine-tuned for reliability-aware positioning through differentiable weighted least squares. Across
+                    geographic
+                    regions unseen during training, the method remains competitive with existing learning-based
+                    weighting methods.
+                    Attention analysis further shows structured behavior tied to satellite quality and relative
+                    geometry.
+                </p>
 
-        <section>
-            <h2>Method</h2>
-            <p>
-                Our method learns useful representations from GNSS observations and
-                exploits relationships among multiple satellite measurements.
-            </p>
-
-            <div class="placeholder">
-                Method overview figure placeholder
+                <div class="contribution-grid" aria-label="Main contributions">
+                    <article>
+                        <p class="card-index">01 / PRETRAIN</p>
+                        <h3>Learn without labels</h3>
+                        <p>Predict the masked pseudorange residual of one satellite from the remaining observations.</p>
+                    </article>
+                    <article>
+                        <p class="card-index">02 / TRANSFER</p>
+                        <h3>Position with context</h3>
+                        <p>Transfer relational features to satellite reliability and correlation-aware weighted
+                            positioning.</p>
+                    </article>
+                    <article>
+                        <p class="card-index">03 / INTERPRET</p>
+                        <h3>Inspect the relations</h3>
+                        <p>Use attention and geometry perturbations to reveal how satellites provide context to one
+                            another.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Results</h2>
-            <p>
-                Quantitative and qualitative experimental results will be presented here.
-            </p>
+        <section class="section section-tint" id="method">
+            <div class="container">
+                <div class="section-heading">
+                    <span>02</span>
+                    <h2>Method Overview</h2>
+                </div>
 
-            <div class="placeholder">
-                Experimental result figure placeholder
+                <div class="method-intro">
+                    <div>
+                        <p class="kicker">One encoder, two stages</p>
+                        <h3>Learn the observation space before optimizing the position.</h3>
+                    </div>
+                    <p>
+                        Each satellite token contains a pseudorange residual, <i>C/N</i><sub>0</sub>, an ENU
+                        line-of-sight vector,
+                        and a token state. Self-attention lets every satellite representation use the context of the
+                        full observation set.
+                    </p>
+                </div>
+
+                <figure class="paper-figure figure-card">
+                    <a href="./media/model.png" target="_blank" rel="noopener"
+                        aria-label="Open the method overview at full size">
+                        <img src="./media/model.png" width="7405" height="2784"
+                            alt="Two-stage method: held-out residual pretraining followed by reliability-aware GNSS positioning">
+                    </a>
+                    <figcaption>Two-stage framework. The pretrained encoder is transferred directly to the downstream
+                        positioning task.</figcaption>
+                </figure>
+
+                <div class="stage-grid">
+                    <article class="stage-card stage-warm">
+                        <div class="stage-label"><span>Stage 1</span><strong>Self-supervised pretraining</strong></div>
+                        <h3>Hold out one residual, then predict it.</h3>
+                        <p>
+                            The target satellite keeps its signal quality and geometry, but its residual is masked. SPP
+                            is recomputed
+                            without that satellite to prevent target leakage. A Gaussian head predicts both residual
+                            mean and uncertainty.
+                        </p>
+                    </article>
+                    <article class="stage-card stage-cool">
+                        <div class="stage-label"><span>Stage 2</span><strong>Reliability-aware positioning</strong>
+                        </div>
+                        <h3>Turn learned relations into measurement weights.</h3>
+                        <p>
+                            Fine-tuning estimates satellite-wise reliability and off-diagonal information coupling. A
+                            differentiable WLS
+                            layer then optimizes position and covariance end to end.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="method-facts" aria-label="Model details">
+                    <span><b>3</b> Transformer layers</span>
+                    <span><b>64</b> embedding dimensions</span>
+                    <span><b>4</b> attention heads</span>
+                    <span><b>128</b> feed-forward dimensions</span>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Supplementary Material</h2>
-            <p>
-                Additional visualizations, videos, and implementation details can be
-                added to this section.
-            </p>
+        <section class="section" id="experiments">
+            <div class="container">
+                <div class="section-heading">
+                    <span>03</span>
+                    <h2>Cross-Region Experiments</h2>
+                </div>
+                <p class="section-lead">
+                    Models evaluated in Hong Kong are trained only on Tokyo and Nagoya data; models evaluated in Tokyo
+                    and Nagoya
+                    are trained only on Hong Kong data. This makes every reported test region geographically unseen
+                    during training.
+                </p>
 
-            <p>
-                Example repository structure:
-                <code>assets/</code>,
-                <code>videos/</code>,
-                <code>supplementary/</code>
-            </p>
+                <div class="dataset-strip" aria-label="Datasets used in the study">
+                    <div><strong>In-house</strong><span>Tokyo / Tsukuba</span><small>109,129 epochs</small></div>
+                    <div><strong>PPC</strong><span>Tokyo / Nagoya</span><small>58,421 epochs</small></div>
+                    <div><strong>KLT</strong><span>Hong Kong</span><small>4,633 epochs</small></div>
+                    <div><strong>UrbanNav</strong><span>Hong Kong</span><small>3,500 epochs</small></div>
+                </div>
+
+                <div class="metric-grid" aria-label="Selected results">
+                    <article>
+                        <h3>Strong UrbanNav transfer</h3>
+                        <p>Achieves the best median error among the evaluated methods.</p>
+                    </article>
+                    <article>
+                        <h3>Strong PPC transfer</h3>
+                        <p>Achieves the best median error in the cross-region comparison.</p>
+                    </article>
+                    <article>
+                        <h3>Clear ablation benefit</h3>
+                        <p>Residual pretraining and information coupling improve median positioning accuracy.</p>
+                    </article>
+                </div>
+
+                <figure class="paper-figure figure-card wide-figure">
+                    <a href="./media/rmse_3d_cross_domain_violin.svg" target="_blank" rel="noopener"
+                        aria-label="Open cross-region result plot at full size">
+                        <img src="./media/rmse_3d_cross_domain_violin.svg" width="1008" height="141" loading="lazy" decoding="async"
+                            alt="Cumulative distributions of 3D positioning errors on KLT, UrbanNav, and PPC datasets">
+                    </a>
+                    <figcaption>
+                        <strong>Cross-region 3D positioning error.</strong> Every test region is excluded from both
+                        pretraining and fine-tuning. The proposed model remains competitive on KLT, while its error
+                        distributions on UrbanNav and PPC shift toward lower values. This indicates that the
+                        representations learned through residual prediction transfer beyond the geographic regions
+                        used for training.
+                    </figcaption>
+                </figure>
+
+                <div class="result-grid">
+                    <figure class="paper-figure figure-card">
+                        <a href="./media/rmse_3d_ablation_nagoya_run3_violin.svg" target="_blank" rel="noopener"
+                            aria-label="Open ablation plot at full size">
+                            <img src="./media/rmse_3d_ablation_nagoya_run3_violin.svg" width="720" height="193" loading="lazy" decoding="async"
+                                alt="Ablation comparison of 3D positioning error on PPC Nagoya run3">
+                        </a>
+                        <figcaption>
+                            <strong>Residual prediction provides the most useful pretraining signal.</strong> This
+                            ablation uses PPC Nagoya run3, a sequence strongly affected by multipath. Performance
+                            improves consistently from no pretraining, to observation-reconstruction pretraining, and
+                            then to residual pretraining. Adding information coupling yields a further improvement,
+                            showing that satellite-wise reliability and cross-satellite error dependencies play
+                            complementary roles.
+                        </figcaption>
+                    </figure>
+                    <figure class="paper-figure figure-card trajectory-card">
+                        <div class="trajectory-panels">
+                            <a class="trajectory-main" href="./media/nagoya_run3_3d_trajectory.svg" target="_blank" rel="noopener"
+                                aria-label="Open trajectory comparison at full size">
+                                <img src="./media/nagoya_run3_3d_trajectory.svg" width="432" height="288" loading="lazy" decoding="async"
+                                    alt="3D positioning trajectory with and without residual pretraining">
+                            </a>
+                        </div>
+                        <figcaption>
+                            <strong>The effect of transfer is visible along the route.</strong> The enlarged trajectory
+                            view compares the estimated paths with the ground truth. Relative to the same model trained
+                            without pretraining, the residual-pretrained model follows the reference trajectory more
+                            consistently across many route segments. The remaining deviations also illustrate the
+                            difficulty of this urban sequence.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <figure class="paper-figure figure-card supporting-figure">
+                    <a href="./media/rmse_3d_by_pt_ft_dataset.svg" target="_blank" rel="noopener"
+                        aria-label="Open training-data composition result at full size">
+                        <img src="./media/rmse_3d_by_pt_ft_dataset.svg" width="561" height="94" loading="lazy"
+                            decoding="async"
+                            alt="Cross-region RMSE under different pretraining and fine-tuning dataset combinations">
+                    </a>
+                    <figcaption>
+                        <strong>Training-data composition influences cross-region generalization.</strong> The bars
+                        compare different combinations of pretraining and fine-tuning datasets for each held-out test
+                        region. Models fine-tuned on UrbanNav tend to transfer well across multiple regions, whereas
+                        fine-tuning on KLT provides more limited gains on UrbanNav and PPC. The pattern suggests that
+                        diverse reception conditions and error characteristics in the fine-tuning data are important
+                        when transferring to unseen environments.
+                    </figcaption>
+                </figure>
+            </div>
         </section>
+
+        <section class="section section-dark" id="analysis">
+            <div class="container">
+                <div class="section-heading section-heading-light">
+                    <span>04</span>
+                    <h2>What Did the Encoder Learn?</h2>
+                </div>
+                <p class="section-lead light-copy">
+                    Attention is not uniform: the encoder forms shared references around informative satellites and
+                    responds to the
+                    geometry between each query–key pair. The analysis below uses PPC Nagoya run1, a region excluded
+                    from pretraining.
+                </p>
+
+                <figure class="analysis-figure">
+                    <div class="analysis-layout">
+                        <a class="attention-map" href="./media/attention_fold_comparison_all_epochs_head_mean.svg"
+                            target="_blank" rel="noopener" aria-label="Open layer-wise attention maps at full size">
+                            <img src="./media/attention_fold_comparison_all_epochs_head_mean.svg" width="1440" height="864"
+                                loading="lazy" decoding="async"
+                                alt="Layer-wise attention maps under elevation and azimuth perturbations">
+                        </a>
+                        <div class="analysis-detail-grid">
+                            <a href="./media/attention_satellite_layout_epoch_000021.svg" target="_blank" rel="noopener"
+                                aria-label="Open satellite skyplot at full size">
+                                <img src="./media/attention_satellite_layout_epoch_000021.svg" width="302" height="274"
+                                    loading="lazy" decoding="async" alt="Skyplot of the analyzed satellite geometry">
+                            </a>
+                            <a href="./media/attention_correlation_heatmaps.svg" target="_blank" rel="noopener"
+                                aria-label="Open attention correlation heatmaps at full size">
+                                <img src="./media/attention_correlation_heatmaps.svg" width="864" height="432"
+                                    loading="lazy" decoding="async"
+                                    alt="Correlations between attention, satellite attributes, and pairwise geometry">
+                            </a>
+                        </div>
+                    </div>
+                    <figcaption>Geometry perturbations, a skyplot, and rank correlations expose layer-specific
+                        relational behavior.</figcaption>
+                </figure>
+
+                <div class="finding-grid">
+                    <article>
+                        <p class="finding-number">ρ = 0.56</p>
+                        <h3>Elevation becomes shared context</h3>
+                        <p>Layer 1 incoming attention correlates positively with elevation, and also with
+                            <i>C/N</i><sub>0</sub> (0.41) and estimated reliability (0.53).
+                        </p>
+                    </article>
+                    <article>
+                        <p class="finding-number">ρ = −0.48</p>
+                        <h3>Nearby satellites interact more</h3>
+                        <p>Layer 1 attention decreases with angular separation; Layer 3 shows the same tendency (−0.38).
+                        </p>
+                    </article>
+                    <article>
+                        <p class="finding-number">L1 ≠ L2</p>
+                        <h3>Layers play different roles</h3>
+                        <p>Layer 1 is visibly geometry-sensitive, while Layer 2 retains attention to distinctive
+                            observations even after geometry is shuffled.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tint" id="video">
+            <div class="container narrow">
+                <div class="section-heading">
+                    <span>05</span>
+                    <h2>Video</h2>
+                </div>
+                <p class="section-lead">
+                    Watch the project video for a visual overview of the proposed approach and its results.
+                </p>
+                <div class="video-frame">
+                    <iframe src="https://www.youtube-nocookie.com/embed/Zn3Nn8_mryA"
+                        title="Cross-Satellite GNSS project video" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="video-link">
+                    <a href="https://www.youtube.com/watch?v=Zn3Nn8_mryA" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="conclusion">
+            <div class="container narrow conclusion-grid">
+                <div>
+                    <p class="kicker">Takeaway</p>
+                    <h2>Residual prediction is a useful pretext for robust GNSS positioning.</h2>
+                </div>
+                <div>
+                    <p>
+                        Predicting one satellite’s residual from the rest creates geometry-conditioned representations
+                        that transfer to
+                        unseen regions and remain interpretable through their attention structure.
+                    </p>
+                    <p>
+                        Future work will extend these representations to satellite visibility, GNSS availability maps,
+                        and surrounding-environment recognition.
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        Anonymous submission — Test Page
+        <div class="container footer-inner">
+            <p><strong>Cross-Satellite GNSS</strong><br>Anonymous research project · 2027</p>
+            <a href="#top">Back to top ↑</a>
+        </div>
     </footer>
 </body>
 
