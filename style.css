@@ -400,10 +400,6 @@ section {
 }
 
 .method-intro {
-  display: grid;
-  grid-template-columns: 0.86fr 1.14fr;
-  gap: clamp(36px, 7vw, 90px);
-  align-items: end;
   max-width: 990px;
   margin-inline: auto;
 }
@@ -418,10 +414,16 @@ section {
   line-height: 1.16;
 }
 
-.method-intro > p,
+.method-intro-copy,
 .conclusion-grid > div:last-child {
-  margin: 0;
   color: var(--ink-soft);
+}
+
+.method-intro-copy {
+  max-width: 820px;
+  margin: 24px 0 0;
+  font-size: 1rem;
+  line-height: 1.78;
 }
 
 .figure-card {
@@ -993,7 +995,6 @@ footer {
     grid-column: 1 / -1;
   }
 
-  .method-intro,
   .conclusion-grid,
   .abstract-layout {
     grid-template-columns: 1fr;

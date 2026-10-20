@@ -57,14 +57,14 @@
                     A visual overview of the proposed cross-satellite relational learning framework and its results.
                 </p>
                 <div class="video-frame">
-                    <video controls playsinline preload="metadata"
-                        aria-label="Cross-Satellite GNSS project video">
+                    <video controls playsinline preload="metadata" aria-label="Cross-Satellite GNSS project video">
                         <source src="./media/icra2027_video.mp4" type="video/mp4">
                         Your browser does not support embedded MP4 video.
                     </video>
                 </div>
                 <p class="video-link">
-                    <a href="https://www.youtube.com/watch?v=Zn3Nn8_mryA" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+                    <a href="https://www.youtube.com/watch?v=Zn3Nn8_mryA" target="_blank" rel="noopener">Watch on
+                        YouTube ↗</a>
                 </p>
             </div>
         </section>
@@ -126,11 +126,8 @@
                 </div>
 
                 <div class="method-intro">
-                    <div>
-                        <p class="kicker">One encoder, two stages</p>
-                        <h3>Learn the observation space before optimizing the position.</h3>
-                    </div>
-                    <p>
+                    <h3>Learn the observation space<br>before optimizing the position.</h3>
+                    <p class="method-intro-copy">
                         Each satellite token contains a pseudorange residual, <i>C/N</i><sub>0</sub>, an ENU
                         line-of-sight vector,
                         and a token state. Self-attention lets every satellite representation use the context of the
@@ -218,7 +215,8 @@
                 <figure class="paper-figure figure-card wide-figure">
                     <a href="./media/rmse_3d_cross_domain_violin.svg" target="_blank" rel="noopener"
                         aria-label="Open cross-region result plot at full size">
-                        <img src="./media/rmse_3d_cross_domain_violin.svg" width="1008" height="141" loading="lazy" decoding="async"
+                        <img src="./media/rmse_3d_cross_domain_violin.svg" width="1008" height="141" loading="lazy"
+                            decoding="async"
                             alt="Cumulative distributions of 3D positioning errors on KLT, UrbanNav, and PPC datasets">
                     </a>
                     <figcaption>
@@ -234,7 +232,8 @@
                     <figure class="paper-figure figure-card">
                         <a href="./media/rmse_3d_ablation_nagoya_run3_violin.svg" target="_blank" rel="noopener"
                             aria-label="Open ablation plot at full size">
-                            <img src="./media/rmse_3d_ablation_nagoya_run3_violin.svg" width="720" height="193" loading="lazy" decoding="async"
+                            <img src="./media/rmse_3d_ablation_nagoya_run3_violin.svg" width="720" height="193"
+                                loading="lazy" decoding="async"
                                 alt="Ablation comparison of 3D positioning error on PPC Nagoya run3">
                         </a>
                         <figcaption>
@@ -248,9 +247,10 @@
                     </figure>
                     <figure class="paper-figure figure-card trajectory-card">
                         <div class="trajectory-panels">
-                            <a class="trajectory-main" href="./media/nagoya_run3_3d_trajectory.svg" target="_blank" rel="noopener"
-                                aria-label="Open trajectory comparison at full size">
-                                <img src="./media/nagoya_run3_3d_trajectory.svg" width="432" height="288" loading="lazy" decoding="async"
+                            <a class="trajectory-main" href="./media/nagoya_run3_3d_trajectory.svg" target="_blank"
+                                rel="noopener" aria-label="Open trajectory comparison at full size">
+                                <img src="./media/nagoya_run3_3d_trajectory.svg" width="432" height="288" loading="lazy"
+                                    decoding="async"
                                     alt="3D positioning trajectory with and without residual pretraining">
                             </a>
                         </div>
@@ -314,8 +314,8 @@
                     <div class="analysis-layout">
                         <a class="attention-map" href="./media/attention_fold_comparison_all_epochs_head_mean.svg"
                             target="_blank" rel="noopener" aria-label="Open layer-wise attention maps at full size">
-                            <img src="./media/attention_fold_comparison_all_epochs_head_mean.svg" width="1440" height="864"
-                                loading="lazy" decoding="async"
+                            <img src="./media/attention_fold_comparison_all_epochs_head_mean.svg" width="1440"
+                                height="864" loading="lazy" decoding="async"
                                 alt="Layer-wise attention maps under elevation and azimuth perturbations">
                         </a>
                         <div class="analysis-detail-grid">
